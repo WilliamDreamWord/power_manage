@@ -1,6 +1,8 @@
 #开发环境，后续开发者可以根据实际环境配置环境server:server:
 server:
   port: 8088
+mybatis:
+  type-aliases-package: com.wewin.power_manage.entity
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
