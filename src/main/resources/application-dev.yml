@@ -2,7 +2,7 @@
 server:
   port: 8088
 mybatis:
-  type-aliases-package: com.wewin.power_manage.entity
+  type-aliases-package: com.wewin.power_manage.dao
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
