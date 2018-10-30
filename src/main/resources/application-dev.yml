@@ -2,10 +2,39 @@
 server:
   port: 8088
 mybatis:
-  type-aliases-package: com.wewin.power_manage.dao
+  type-aliases-package: com.wewin.power_manage.entity
+  mapper-locations: classpath:mapper/*.xml
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/power_manager?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: 19961127
+    generate-unique-name: true
+  redis:
+    # Redis数据库索引（默认为0）
+    database: 0
+    # Redis服务器地址
+    host:  127.0.0.1
+    # Redis服务器连接端口
+    port: 6370
+    # Redis服务器连接密码（默认为空）
+    password:
+    timeout: 0
+    jedis:
+      pool:
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+        max-active: 8
+  session:
+    store-type: redis
+
+
+
+
+
+
+
+
+

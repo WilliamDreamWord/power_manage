@@ -51,7 +51,7 @@ INSERT INTO `cable` VALUES (1, 'AFJAF', '信息', 'his1历史服务器#1his1历�
 COMMIT;
 
 -- ----------------------------
--- Table structure for device
+-- Table structure for terminal
 -- ----------------------------
 DROP TABLE IF EXISTS `terminal`;
 CREATE TABLE `terminal` (
@@ -74,16 +74,16 @@ CREATE TABLE `terminal` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device
+-- Records of terminal
 -- ----------------------------
 BEGIN;
 INSERT INTO `terminal` VALUES (1, 'AFAaf','信息','苹果一体机','方玉斌','15803067129','行政部','2018/4/24',null,0,0,null, null, NOW(),NULL );
 COMMIT;
 
 -- ----------------------------
--- Table structure for device
+-- Table structure for terminal_failure
 -- ----------------------------
-DROP TABLE IF EXISTS `termianl_failure`;
+DROP TABLE IF EXISTS `terminal_failure`;
 CREATE TABLE `terminal_failure` (
   `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '数据库表id',
   `failure_id` varchar(100) NOT NULL COMMENT '故障id',
@@ -104,10 +104,104 @@ CREATE TABLE `terminal_failure` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device
+-- Records of terminal_failure
 -- ----------------------------
 BEGIN;
 INSERT INTO `terminal_failure` VALUES (1, 'AFJBA','AFAaf','现状1','太丑', NULL, NOW(), NOW(), NOW(), NULL, NULL, '0', NULL, NOW(), NULL);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for device_model
+-- ----------------------------
+DROP TABLE IF EXISTS `device_model`;
+CREATE TABLE `device_model` (
+  `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '数据库表id',
+  `deviceM_id` varchar(100) NOT NULL COMMENT '设备类型id',
+  `deviceM_name` varchar(100) NOT NULL COMMENT '设备类型名称',
+  `deviceM_price` varchar(100) DEFAULT NULL COMMENT '设备类型平均价格',
+  `extends_attri1` varchar(100) DEFAULT NULL COMMENT '扩展属性1',
+  `extends_attri2` varchar(100) DEFAULT NULL COMMENT '扩展属性2',
+  `extends_attri3` varchar(100) DEFAULT NULL COMMENT '扩展属性3',
+  `extends_attri4` varchar(100) DEFAULT NULL COMMENT '扩展属性4',
+  `extends_attri5` varchar(100) DEFAULT NULL COMMENT '扩展属性5',
+  `extends_remark` text DEFAULT NULL COMMENT '设备类型描述',
+  `create_date` varchar(20) DEFAULT NULL COMMENT '创建时间',
+  `update_date` varchar(20) DEFAULT NULL COMMENT '修改时间/只记录最近一次修改时间',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of device_model
+-- ----------------------------
+BEGIN;
+INSERT INTO `device_model` VALUES (1, 'AFBKJA','交换机',NULL, NULL, NULL, NULL, NULL, NULL, NULL, NOW(), NULL);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for profession_model
+-- ----------------------------
+DROP TABLE IF EXISTS `profession_model`;
+CREATE TABLE `profession_model` (
+  `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '数据库表id',
+  `profM_id` varchar(100) NOT NULL COMMENT '专业类型id',
+  `proM_name` varchar(100) NOT NULL COMMENT '专业名称',
+  `proM_num` varchar(20) DEFAULT NULL COMMENT '专业内总人数/总设备',
+  `proM_remark` text DEFAULT NULL COMMENT '专业类型描述',
+  `create_date` varchar(20) DEFAULT NULL COMMENT '创建时间',
+  `update_date` varchar(20) DEFAULT NULL COMMENT '修改时间/只记录最近一次修改时间',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of profession_model
+-- ----------------------------
+BEGIN;
+INSERT INTO `profession_model` VALUES (1, 'ajfja','信息',NULL,NULL, NOW(), NULL);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for part_model
+-- ----------------------------
+DROP TABLE IF EXISTS `part_model`;
+CREATE TABLE `part_model` (
+  `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '数据库表id',
+  `partM_id` varchar(100) NOT NULL COMMENT '分区类型id',
+  `partM_name` varchar(100) NOT NULL COMMENT '分区类型名称',
+  `partM_num` varchar(100) DEFAULT NULL COMMENT '分区类型总人数/总设备',
+  `partM_remark` text DEFAULT NULL COMMENT '分区类型描述',
+  `create_date` varchar(20) DEFAULT NULL COMMENT '创建时间',
+  `update_date` varchar(20) DEFAULT NULL COMMENT '修改时间/只记录最近一次修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of part_model
+-- ----------------------------
+BEGIN;
+INSERT INTO `part_model` VALUES (1, 'AFIA', '一区', NULL, NULL, NOW(), NULL);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for department_model
+-- ----------------------------
+DROP TABLE IF EXISTS `department_model`;
+CREATE TABLE `department_model` (
+  `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '数据库表id',
+  `deptM_id` varchar(100) NOT NULL COMMENT '部门类型id',
+  `deptM_name` varchar(100) NOT NULL COMMENT '部门类型名称',
+  `deptM_num` varchar(100) DEFAULT NULL COMMENT '部门所属下总人数/总设备',
+  `deptM_person` varchar(20) DEFAULT NULL COMMENT '部门主管',
+  `deptM_remark` text DEFAULT NULL COMMENT '部门描述',
+  `create_date` varchar(20) DEFAULT NULL COMMENT '创建时间',
+  `update_date` varchar(20) DEFAULT NULL COMMENT '修改时间/只记录最近一次修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of
+-- ----------------------------
+BEGIN;
+INSERT INTO `department_model` VALUES (1, 'AFAF', '材料', NULL, NULL, NULL, NOW(), NULL);
 COMMIT;
 
 -- ----------------------------

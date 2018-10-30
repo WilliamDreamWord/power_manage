@@ -24,7 +24,7 @@
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
         <!--生成Mapping映射文件存放位置-->
-        <sqlMapGenerator targetPackage="com.wewin.power_manage.mapper" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="classpath:mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!--生成Dao类存放位置-->
@@ -71,6 +71,42 @@
         <table schema="power_manager"
                tableName="terminal_failure"
                domainObjectName="Term_Failure"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table schema="power_manager"
+               tableName="department_model"
+               domainObjectName="Dept_model"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table schema="power_manager"
+               tableName="device_model"
+               domainObjectName="Device_model"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table schema="power_manager"
+               tableName="part_model"
+               domainObjectName="Part_model"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table schema="power_manager"
+               tableName="profession_model"
+               domainObjectName="Prof_model"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
