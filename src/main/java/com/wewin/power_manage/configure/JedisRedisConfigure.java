@@ -20,3 +20,4 @@ public class JedisRedisConfigure {
         return factory;
     }
 }
+

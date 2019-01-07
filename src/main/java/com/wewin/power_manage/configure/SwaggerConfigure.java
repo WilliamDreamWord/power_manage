@@ -33,11 +33,11 @@ public class SwaggerConfigure {
                 .build();
     }
 
-    public ApiInfo apiInfo() {
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("江津电力管理系统API在线文档 @Swagger2")
                 .description("simple style")
-                .contact(new Contact("梦话","http://localhost:8088/swagger-ui.html","williamyg1996@gmail.com"))
+                .contact(new Contact("梦话","https://www.williamyg.top","williamyg1996@gmail.com"))
                 .termsOfServiceUrl("https://williamyg.top/power_manage")
                 .version("1.0")
                 .build();

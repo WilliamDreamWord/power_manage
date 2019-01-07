@@ -1,9 +1,11 @@
 package com.wewin.power_manage.interceptor;
 
+import com.alibaba.dubbo.common.json.JSON;
 import com.wewin.power_manage.util.SendMsgUitil;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import springfox.documentation.spring.web.json.Json;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +29,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         if (request.getSession().getAttribute("user") == null) {
             System.out.println("拦截器拦截，用户没有登陆");
-            SendMsgUitil.sendMessage(response, "拦截器拦截，用户没有登陆");
+            SendMsgUitil.sendJsonMsg(response, "拦截器拦截，用户没有登陆");
             return false;
         }
         return true;// 只有返回true才会继续向下执行，返回false取消当前请求

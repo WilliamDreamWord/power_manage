@@ -57,10 +57,13 @@ public class ManagerController {
             Manager manager1 = managerService.login(manager, request);
             ResponseUtil responseUtil = ResponseUtil.ok();
 
-            String token = JWTUtil.sign(manager1, 30L * 24L * 3600L * 1000L);
-            if (token != null ) {
+            if (manager1!= null) {
+                String token = JWTUtil.sign(manager1, 30L * 24L * 3600L * 1000L);
                 responseUtil.putResponseData("token", token);
+
             }
+
+            responseUtil.putResponseData("manager", manager1);
 
             return responseUtil;
         } catch (Exception e) {
@@ -89,12 +92,6 @@ public class ManagerController {
         list.add(0, managerService.selectAll());
         list.add(1, session_id);
 
-//        if(request.getSession().getAttribute("user") == null) {
-//            System.out.println("用户没有登陆");
-//            list.add("拦截器拦截，用户没有登陆");
-//            response.sendRedirect("/Manager/login");
-//            return list;
-//        } else
         return list;
     }
 
@@ -208,10 +205,12 @@ public class ManagerController {
         } catch (Exception e) {
             e.printStackTrace();
             ResponseUtil responseUtil1 = ResponseUtil.serverInternalError();
+            responseUtil1.putResponseData("status", 1);
             return responseUtil1.putResponseData("msg", e.getClass());
         }
 
         System.out.println("sessionid" + request.getSession().getId());
+        responseUtil.putResponseData("status", 0);
         return responseUtil.putResponseData("msg", "成功退出系统");
     }
 
